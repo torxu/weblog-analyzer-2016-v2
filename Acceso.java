@@ -5,16 +5,22 @@ public class Acceso
     private int dia;
     private int hora;
     private int minutos;
+    private String iP;
+    private String enlacePagina;
+    private int hTTP;
     
-    public Acceso(String fecha)
+    public Acceso(String archivo)
     {
-        String[] elementosLinea = fecha.split(" "); 
+        String[] elementosLinea = archivo.split(" "); 
         
-        this.ano = Integer.parseInt(elementosLinea[0]);
-        this.mes = Integer.parseInt(elementosLinea[1]);
-        this.dia = Integer.parseInt(elementosLinea[2]);
-        this.hora = Integer.parseInt(elementosLinea[3]);
-        this.minutos = Integer.parseInt(elementosLinea[4]);
+        this.iP = elementosLinea[0];
+        this.ano = Integer.parseInt(elementosLinea[1].substring(1, 5));
+        this.mes = Integer.parseInt(elementosLinea[2]);
+        this.dia = Integer.parseInt(elementosLinea[3]);
+        this.hora = Integer.parseInt(elementosLinea[4]);
+        this.minutos = Integer.parseInt(elementosLinea[5].substring(0,2));
+        this.enlacePagina = elementosLinea[6];
+        this.hTTP = Integer.parseInt(elementosLinea[7]);
     }
     
     public int getAno() 
